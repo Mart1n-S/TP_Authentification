@@ -16,9 +16,16 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
    ```bash
    git clone <url-du-repo>
    cd <nom-du-repo>
-2. **Configurer le fichier .env.local**
+   ```
 
-    Créer le fichier .env.local à la racine du projet pour définir vos informations de connexion à la base de données :
+2. **Installer les dépendances :**
+   
+    ```bash
+   composer install
+   ```
+3. **Configurer le fichier .env.local :**
+
+    Créer le fichier .env.local en copiant le .env à la racine du projet pour définir vos informations de connexion à la base de données :
     ```bash
     MYSQL_DATABASE=app
     MYSQL_USER=user
@@ -46,7 +53,7 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
    
    Exécutez la commande suivante pour construire les conteneurs :
     ```bash
-   docker-compose up -d
+   docker-compose --env-file .env.local up -d
    ```
 
 2. **Vérifier l'état des conteneurs :**
