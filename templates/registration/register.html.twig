@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 col-lg-6 col-sm-12">
+		<div class="card">
+			<div class="card-header">
+				<h1 class="card-title">Inscription</h1>
+			</div>
+			<div class="card-body" data-controller="inscription">
+				{{ form_errors(registrationForm) }}
+
+				{{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+				<div class="form-floating mb-3">
+					{{ form_widget(registrationForm.name, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
+					{{ form_label(registrationForm.name) }}
+					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.name)}}</div>
+				</div>
+
+				<div class="form-floating mb-3">
+					{{ form_widget(registrationForm.email, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
+
+					{{ form_label(registrationForm.email) }}
+					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.email)}}</div>
+				</div>
+				<div class="form-floating mb-3">
+					{{ form_widget(registrationForm.plainPassword.first, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
+					{{ form_label(registrationForm.plainPassword.first) }}
+					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.plainPassword.first)}}</div>
+					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" data-action="click->inscription#togglePasswordVisibility" data-inscription-target="toggleIcon"></i>
+
+				</div>
+				<ul class="password-criteria d-none" data-inscription-target="criteria">
+					<li data-inscription-target="length" class="text-danger">Au moins 16 caractères</li>
+					<li data-inscription-target="uppercase" class="text-danger">Au moins une lettre majuscule</li>
+					<li data-inscription-target="lowercase" class="text-danger">Au moins une lettre minuscule</li>
+					<li data-inscription-target="number" class="text-danger">Au moins un chiffre</li>
+					<li data-inscription-target="special" class="text-danger">Au moins un caractère spécial</li>
+				</ul>
+
+				<div class="form-floating mb-3">
+					{{ form_widget(registrationForm.plainPassword.second, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
+					{{ form_label(registrationForm.plainPassword.second) }}
+					<div class="text-danger d-none" data-inscription-target="error"></div>
+				</div>
+				<div class="mb-3 form-check">
+					{{ form_widget(registrationForm.agreeTerms, {'attr': {'data-action': 'change->inscription#validate', 'data-inscription-target': 'input'}}) }}
+					{{ form_label(registrationForm.agreeTerms) }}
+					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.agreeTerms)}}</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+
+				<div class="d-flex justify-content-center mt-4 gap-1">
+					<p>Déjà inscrit ?
+					</p>
+					<a href="{{path("app_login")}}">Se connecter</a>
+				</div>
+				{{ form_end(registrationForm) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
