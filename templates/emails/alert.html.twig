@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Réinitialisation de mot de passe</title>
+		<title>Alerte de sécurité</title>
 		<style>
 			body {
 				font-family: Montserrat, sans-serif;
@@ -18,6 +18,7 @@
 				background-color: #f8f9fa;
 				padding: 15px;
 				text-align: center;
+				color: red;
 			}
 			.card-body {
 				padding: 20px;
@@ -43,18 +44,10 @@
 		<div style="max-width: 600px; margin: auto;">
 			<div class="card">
 				<div class="card-header">
-					<h1 class="card-title">Lien de réinitialisation du mot de passe</h1>
-					<p class="text-muted fst-italic">Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.</p>
+					<h1 class="card-title">Alerte de sécurité</h1>
 				</div>
 				<div class="card-body">
-					<p>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant :</p>
-					<a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class="btn-reset">
-						Réinitialiser le mot de passe
-					</a>
-					<p>Ce lien expirera dans
-						{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
-						et est valide 1 heure.
-					</p>
+					<p>Vous avez eu 5 tentatives de connexion échouées. Si cela n'était pas vous, veuillez vérifier votre compte.</p>
 					<p class="text-muted">Cordialement !</p>
 				</div>
 			</div>
