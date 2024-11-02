@@ -62,8 +62,13 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
    ```bash
    docker-compose ps
    ```
+3. **Lancer les migrations :**
+   
+   ```bash
+   symfony console d:m:m
+   ```
 
-3. **Accéder à l'application Symfony 🎼:**
+4. **Accéder à l'application Symfony 🎼:**
 
 
    Exécutez la commande suivante pour lancer votre serveur Symfony :
@@ -75,12 +80,12 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
 
    - https://127.0.0.1:8000/
    
-4. **Accéder à PhpMyAdmin 💻:**
+5. **Accéder à PhpMyAdmin 💻:**
    
    Pour gérer votre base de données via PhpMyAdmin, ouvrez votre navigateur et allez à :
    - http://localhost:8080/
 
-5. **Accéder à MailPit 📧:**
+6. **Accéder à MailPit 📧:**
    
    Pour accéder à MailPit pour tester l'authentification à 2 facteurs ou réinitialiser le mot de passe : 
    - http://localhost:8025/

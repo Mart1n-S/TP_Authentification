@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser votre mot de passe
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 col-lg-6 col-sm-12">
+		{% if form_errors(resetForm) %}
+
+			<div class="alert alert-danger">{{ form_errors(resetForm) }}</div>
+
+		{% endif %}
+		<div class="card">
+			<div class="card-header">
+				<h1 class="card-title">Réinitialiser votre mot de passe</h1>
+			</div>
+			<div class="card-body" data-controller="check-input">
+
+
+				{{ form_start(resetForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+				<div class="form-floating mb-3">
+					{{ form_widget(resetForm.plainPassword.first, {'attr': {'data-action': 'input->check-input#validatePasswordCriteria', 'data-check-input-target': 'passwordInput'}}) }}
+
+					{{ form_label(resetForm.plainPassword.first) }}
+					<div class="text-danger d-none" data-check-input-target="error">{{form_errors(resetForm.plainPassword.first)}}</div>
+					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" data-action="click->check-input#togglePasswordVisibility" data-check-input-target="toggleIcon"></i>
+
+				</div>
+				<ul class="password-criteria d-none" data-check-input-target="criteria">
+					<li data-check-input-target="length" class="text-danger">Au moins 16 caractères</li>
+					<li data-check-input-target="uppercase" class="text-danger">Au moins une lettre majuscule</li>
+					<li data-check-input-target="lowercase" class="text-danger">Au moins une lettre minuscule</li>
+					<li data-check-input-target="number" class="text-danger">Au moins un chiffre</li>
+					<li data-check-input-target="special" class="text-danger">Au moins un caractère spécial</li>
+				</ul>
+
+				<div class="form-floating mb-3">
+					{{ form_widget(resetForm.plainPassword.second, {'attr': {'data-action': 'input->check-input#validatePasswordMatch', 'data-check-input-target': 'confirmPasswordInput'}}) }}
+					{{ form_label(resetForm.plainPassword.second) }}
+					<div class="text-danger d-none" data-check-input-target="confirmError"></div>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary w-100">Réinitialiser</button>
+
+				{{ form_end(resetForm) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

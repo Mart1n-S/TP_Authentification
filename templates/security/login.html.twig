@@ -8,6 +8,16 @@
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
+		{% for type, messages in app.flashes %}
+			{% for message in messages %}
+				<div class="alert alert-{{ type }}">{{ message }}</div>
+			{% endfor %}
+		{% endfor %}
+
+		{% for flash_info in app.flashes('success') %}
+			<div class="alert alert-success" role="alert">{{ flash_info }}</div>
+		{% endfor %}
+
 
 		<div class="card">
 			<form method="post">
@@ -25,11 +35,14 @@
 						<label for="password">Mot de passe</label>
 					</div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-					<div class="mb-3 form-check">
-						<input type="checkbox" class="form-check-input" name="_remember_me">
-						<label class="form-check-label" for="_remember_me">Se souvenir de moi</label>
+					<div class="d-flex justify-content-between">
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" name="_remember_me">
+							<label class="form-check-label" for="_remember_me">Se souvenir de moi</label>
+						</div>
+						<a href="{{path('app_forgot_password_request')}}">Mot de passe oublié</a>
 					</div>
+
 
 					<button type="submit" class="btn btn-primary w-100">Se connecter</button>
 					<div class="d-flex justify-content-center mt-4 gap-1">

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Réinitialisation de mot de passe</title>
+		<style>
+			body {
+				font-family: Montserrat, sans-serif;
+			}
+			.card {
+				border: 1px solid #e0e0e0;
+				border-radius: 5px;
+				margin: 20px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			.card-header {
+				background-color: #f8f9fa;
+				padding: 15px;
+				text-align: center;
+			}
+			.card-body {
+				padding: 20px;
+			}
+			.btn-reset {
+				display: inline-block;
+				padding: 10px 20px;
+				margin-top: 10px;
+				background-color: #007bff;
+				color: #fff;
+				text-decoration: none;
+				border-radius: 5px;
+			}
+			.btn-reset:hover {
+				background-color: #0056b3;
+			}
+			.text-muted {
+				color: #6c757d;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="max-width: 600px; margin: auto;">
+			<div class="card">
+				<div class="card-header">
+					<h1 class="card-title">Lien de réinitialisation du mot de passe</h1>
+					<p class="text-muted fst-italic">Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.</p>
+				</div>
+				<div class="card-body" data-controller="check-input">
+					<p>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant :</p>
+					<a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class="btn-reset">
+						Réinitialiser le mot de passe
+					</a>
+					<p>Ce lien expirera dans
+						{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
+						et est valide 1 heure.
+					</p>
+					<p class="text-muted">Cordialement !</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
