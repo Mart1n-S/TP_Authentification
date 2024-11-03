@@ -1,0 +1,3 @@
+# translations/validators/validators.fr.yaml
+karser_recaptcha3.message: "Votre ordinateur ou votre réseau envoie peut-être des requêtes automatisées"
+karser_recaptcha3.message_missing_value: "Valeur de captcha manquante"

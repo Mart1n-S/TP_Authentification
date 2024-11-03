@@ -20,7 +20,9 @@
 
 
 		<div class="card">
-			<form method="post">
+			<form method="post" data-controller="captcha" 
+              data-captcha-site-key-value="{{ siteKey }}" 
+              data-captcha-action-value="landing">
 				<div class="card-header">
 					<h1 class="card-title">Connexion</h1>
 				</div>
@@ -35,6 +37,7 @@
 						<label for="password">Mot de passe</label>
 					</div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                	<input type="hidden" id="form_captcha" name="form[captcha]" />
 					<div class="d-flex justify-content-between">
 						<div class="mb-3 form-check">
 							<input type="checkbox" class="form-check-input" name="_remember_me">
@@ -55,4 +58,9 @@
 			</form>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ siteKey }}" async defer></script>
 {% endblock %}

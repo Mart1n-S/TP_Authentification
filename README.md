@@ -45,7 +45,17 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
     APP_SECRET=XXXXXX
     ```
 
-    Remarque : Assurez-vous de garder ce fichier hors de votre dépôt Git en l'ajoutant à votre .gitignore.
+## Configuration de Google reCAPTCHA v3
+
+1. Rendez-vous sur [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create) pour générer vos clés reCAPTCHA v3.
+2. Ajoutez les clés générées dans votre fichier `.env.local` :
+
+    ```bash
+    RECAPTCHA3_KEY=XXXXXX
+    RECAPTCHA3_SECRET=XXXXXX
+    ```
+
+   Remarque : Assurez-vous de garder ce fichier hors de votre dépôt Git en l'ajoutant à votre .gitignore.
 
 ## Construction et exécution des conteneurs 🐋
 

@@ -18,7 +18,7 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('app_profil');
         }
 
-        // get the login error if there is one
+        // Récupérer l'erreur de connexion s'il y en a une
         $error = $authenticationUtils->getLastAuthenticationError();
 
         if ($error) {
@@ -28,10 +28,12 @@ class SecurityController extends AbstractController
             // Utiliser le service pour gérer les échecs de connexion
             $authenticationAlertService->handleFailedLogin($session, $email);
         }
-        // last username entered by the user
+        // Récupérer le dernier email saisi par l'utilisateur
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        $siteKey = $_ENV['RECAPTCHA3_KEY'];
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error, 'siteKey' => $siteKey]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
