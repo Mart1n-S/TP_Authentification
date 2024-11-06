@@ -19,25 +19,24 @@
 		{% endfor %}
 
 
-		<div class="card">
-			<form method="post" data-controller="captcha" 
-              data-captcha-site-key-value="{{ siteKey }}" 
-              data-captcha-action-value="landing">
+		<div class="card bg-transparent">
+			<form method="post" data-controller="captcha" data-captcha-site-key-value="{{ siteKey }}" data-captcha-action-value="landing">
 				<div class="card-header">
 					<h1 class="card-title">Connexion</h1>
 				</div>
 				<div class="card-body">
 					<div class="form-floating mb-3">
 						<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" autocomplete="email" required autofocus>
-						<label for="email">Email</label>
+						<label for="email" class="text-dark">Email</label>
 					</div>
 
 					<div class="form-floating mb-3">
 						<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
-						<label for="password">Mot de passe</label>
+						<label for="password" class="text-dark">Mot de passe</label>
+						<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer text-black" id="icon-eye" onclick="togglePassword()"></i>
 					</div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                	<input type="hidden" id="form_captcha" name="form[captcha]" />
+					<input type="hidden" id="form_captcha" name="form[captcha]"/>
 					<div class="d-flex justify-content-between">
 						<div class="mb-3 form-check">
 							<input type="checkbox" class="form-check-input" name="_remember_me">
@@ -61,6 +60,24 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script src="https://www.google.com/recaptcha/api.js?render={{ siteKey }}" async defer></script>
+	{{ parent() }}
+	<script src="https://www.google.com/recaptcha/api.js?render={{ siteKey }}" async defer></script>
+
+	<script defer>
+		function togglePassword() {
+
+const passwordField = document.querySelector("#inputPassword");
+const icon = document.querySelector("#icon-eye");
+
+// Alterne entre "text" et "password" pour chaque champ de mot de passe
+if (passwordField.type === "password") {
+passwordField.type = "text";
+icon.classList.replace("bi-eye", "bi-eye-slash");
+} else {
+passwordField.type = "password";
+icon.classList.replace("bi-eye-slash", "bi-eye");
+}
+
+}
+	</script>
 {% endblock %}

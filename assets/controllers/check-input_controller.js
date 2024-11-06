@@ -121,8 +121,8 @@ export default class extends Controller {
   }
 
   toggleCriteria(target, isValid) {
-    target.classList.toggle("text-success", isValid);
-    target.classList.toggle("text-danger", !isValid);
+    target.classList.toggle("text-valid", isValid);
+    target.classList.toggle("text-error", !isValid);
   }
 
   showError(name, message) {

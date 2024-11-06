@@ -26,6 +26,9 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
+                'label_attr' => [
+                    'class' => 'text-dark',
+                ],
                 'required' => true,
                 'attr' => [
                     'class' => 'form-control',
@@ -53,6 +56,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
+                'label_attr' => [
+                    'class' => 'text-dark',
+                ],
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Email',
@@ -80,7 +86,7 @@ class RegistrationFormType extends AbstractType
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => 'Accepter les CGU',
                 'label_attr' => [
-                    'class' => 'form-check-label',
+                    'class' => 'form-check-label text-white',
                 ],
                 'mapped' => false,
                 'attr' => [
@@ -97,6 +103,9 @@ class RegistrationFormType extends AbstractType
                 'invalid_message' => 'Les mots de passe doivent correspondre.',
                 'first_options'  => [
                     'label' => 'Mot de passe',
+                    'label_attr' => [
+                        'class' => 'text-dark',
+                    ],
                     'attr' => [
                         'class' => 'form-control password',
                         'placeholder' => 'Mot de passe',
@@ -109,6 +118,9 @@ class RegistrationFormType extends AbstractType
                 ],
                 'second_options' => [
                     'label' => 'Confirmation du mot de passe',
+                    'label_attr' => [
+                        'class' => 'text-dark',
+                    ],
                     'attr' => [
                         'class' => 'form-control password',
                         'placeholder' => 'Confirmer le mot de passe',

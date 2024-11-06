@@ -25,6 +25,9 @@ class ChangePasswordFormType extends AbstractType
                 'invalid_message' => 'Les mots de passe doivent correspondre.',
                 'first_options'  => [
                     'label' => 'Mot de passe',
+                    'label_attr' => [
+                        'class' => 'text-dark',
+                    ],
                     'attr' => [
                         'class' => 'form-control password',
                         'placeholder' => 'Mot de passe',
@@ -37,6 +40,9 @@ class ChangePasswordFormType extends AbstractType
                 ],
                 'second_options' => [
                     'label' => 'Confirmation du mot de passe',
+                    'label_attr' => [
+                        'class' => 'text-dark',
+                    ],
                     'attr' => [
                         'class' => 'form-control password',
                         'placeholder' => 'Confirmer le mot de passe',

@@ -97,8 +97,8 @@ export default class extends Controller {
   }
 
   toggleCriteria(target, isValid) {
-    target.classList.toggle("text-success", isValid);
-    target.classList.toggle("text-danger", !isValid);
+    target.classList.toggle("text-valid", isValid);
+    target.classList.toggle("text-error", !isValid);
   }
 
   getErrorMessage(name, value) {
@@ -140,16 +140,16 @@ export default class extends Controller {
 
   setValid(target, label) {
     target.classList.add("is-valid");
-    label.classList.add("text-success");
+    label.classList.add("text-valid");
     target.classList.remove("is-invalid");
-    label.classList.remove("text-danger");
+    label.classList.remove("text-error");
   }
 
   setInvalid(target, label) {
     target.classList.add("is-invalid");
-    label.classList.add("text-danger");
+    label.classList.add("text-error");
     target.classList.remove("is-valid");
-    label.classList.remove("text-success");
+    label.classList.remove("text-valid");
   }
 
   togglePasswordVisibility() {

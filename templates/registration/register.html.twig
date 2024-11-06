@@ -8,7 +8,8 @@
 		{% if form_errors(registrationForm) %}
 			<div class="alert alert-danger">{{ form_errors(registrationForm) }}</div>
 		{% endif %}
-		<div class="card">
+		<div class="card bg-transparent">
+
 			<div class="card-header">
 				<h1 class="card-title">Inscription</h1>
 			</div>
@@ -19,39 +20,39 @@
 				<div class="form-floating mb-3">
 					{{ form_widget(registrationForm.name, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
 					{{ form_label(registrationForm.name) }}
-					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.name)}}</div>
+					<div class="text-error d-none" data-inscription-target="error">{{form_errors(registrationForm.name)}}</div>
 				</div>
 
 				<div class="form-floating mb-3">
 					{{ form_widget(registrationForm.email, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
 
 					{{ form_label(registrationForm.email) }}
-					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.email)}}</div>
+					<div class="text-error d-none" data-inscription-target="error">{{form_errors(registrationForm.email)}}</div>
 				</div>
 				<div class="form-floating mb-3">
 					{{ form_widget(registrationForm.plainPassword.first, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
 					{{ form_label(registrationForm.plainPassword.first) }}
-					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.plainPassword.first)}}</div>
-					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" data-action="click->inscription#togglePasswordVisibility" data-inscription-target="toggleIcon"></i>
+					<div class="text-error d-none" data-inscription-target="error">{{form_errors(registrationForm.plainPassword.first)}}</div>
+					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer text-black" data-action="click->inscription#togglePasswordVisibility" data-inscription-target="toggleIcon"></i>
 
 				</div>
 				<ul class="password-criteria d-none" data-inscription-target="criteria">
-					<li data-inscription-target="length" class="text-danger">Au moins 16 caractères</li>
-					<li data-inscription-target="uppercase" class="text-danger">Au moins une lettre majuscule</li>
-					<li data-inscription-target="lowercase" class="text-danger">Au moins une lettre minuscule</li>
-					<li data-inscription-target="number" class="text-danger">Au moins un chiffre</li>
-					<li data-inscription-target="special" class="text-danger">Au moins un caractère spécial</li>
+					<li data-inscription-target="length" class="text-error">Au moins 16 caractères</li>
+					<li data-inscription-target="uppercase" class="text-error">Au moins une lettre majuscule</li>
+					<li data-inscription-target="lowercase" class="text-error">Au moins une lettre minuscule</li>
+					<li data-inscription-target="number" class="text-error">Au moins un chiffre</li>
+					<li data-inscription-target="special" class="text-error">Au moins un caractère spécial</li>
 				</ul>
 
 				<div class="form-floating mb-3">
 					{{ form_widget(registrationForm.plainPassword.second, {'attr': {'data-action': 'input->inscription#validate', 'data-inscription-target': 'input'}}) }}
 					{{ form_label(registrationForm.plainPassword.second) }}
-					<div class="text-danger d-none" data-inscription-target="error"></div>
+					<div class="text-error d-none" data-inscription-target="error"></div>
 				</div>
 				<div class="mb-3 form-check">
 					{{ form_widget(registrationForm.agreeTerms, {'attr': {'data-action': 'change->inscription#validate', 'data-inscription-target': 'input'}}) }}
 					{{ form_label(registrationForm.agreeTerms) }}
-					<div class="text-danger d-none" data-inscription-target="error">{{form_errors(registrationForm.agreeTerms)}}</div>
+					<div class="text-error d-none" data-inscription-target="error">{{form_errors(registrationForm.agreeTerms)}}</div>
 				</div>
 
 				{{ form_widget(registrationForm.captcha) }}

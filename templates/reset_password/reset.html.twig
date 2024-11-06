@@ -10,7 +10,8 @@
 			<div class="alert alert-danger">{{ form_errors(resetForm) }}</div>
 
 		{% endif %}
-		<div class="card">
+		<div class="card  bg-transparent">
+
 			<div class="card-header">
 				<h1 class="card-title">Réinitialiser votre mot de passe</h1>
 			</div>
@@ -23,22 +24,22 @@
 					{{ form_widget(resetForm.plainPassword.first, {'attr': {'data-action': 'input->check-input#validatePasswordCriteria', 'data-check-input-target': 'passwordInput'}}) }}
 
 					{{ form_label(resetForm.plainPassword.first) }}
-					<div class="text-danger d-none" data-check-input-target="error">{{form_errors(resetForm.plainPassword.first)}}</div>
-					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" data-action="click->check-input#togglePasswordVisibility" data-check-input-target="toggleIcon"></i>
+					<div class="text-error d-none" data-check-input-target="error">{{form_errors(resetForm.plainPassword.first)}}</div>
+					<i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer text-black" data-action="click->check-input#togglePasswordVisibility" data-check-input-target="toggleIcon"></i>
 
 				</div>
 				<ul class="password-criteria d-none" data-check-input-target="criteria">
-					<li data-check-input-target="length" class="text-danger">Au moins 16 caractères</li>
-					<li data-check-input-target="uppercase" class="text-danger">Au moins une lettre majuscule</li>
-					<li data-check-input-target="lowercase" class="text-danger">Au moins une lettre minuscule</li>
-					<li data-check-input-target="number" class="text-danger">Au moins un chiffre</li>
-					<li data-check-input-target="special" class="text-danger">Au moins un caractère spécial</li>
+					<li data-check-input-target="length" class="text-error">Au moins 16 caractères</li>
+					<li data-check-input-target="uppercase" class="text-error">Au moins une lettre majuscule</li>
+					<li data-check-input-target="lowercase" class="text-error">Au moins une lettre minuscule</li>
+					<li data-check-input-target="number" class="text-error">Au moins un chiffre</li>
+					<li data-check-input-target="special" class="text-error">Au moins un caractère spécial</li>
 				</ul>
 
 				<div class="form-floating mb-3">
 					{{ form_widget(resetForm.plainPassword.second, {'attr': {'data-action': 'input->check-input#validatePasswordMatch', 'data-check-input-target': 'confirmPasswordInput'}}) }}
 					{{ form_label(resetForm.plainPassword.second) }}
-					<div class="text-danger d-none" data-check-input-target="confirmError"></div>
+					<div class="text-error d-none" data-check-input-target="confirmError"></div>
 				</div>
 
 				{{ form_widget(resetForm.captcha) }}
