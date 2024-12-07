@@ -57,6 +57,6 @@ when@test:
       # reduces the work factor to the lowest possible values.
       Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
         algorithm: auto
-        cost: 15
-        time_cost: 15
+        cost: 10
+        time_cost: 10
         memory_cost: 10
