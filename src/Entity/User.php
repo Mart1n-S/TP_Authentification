@@ -40,6 +40,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $authCode;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $isVerified = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -148,5 +151,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     public function setEmailAuthCode(string $authCode): void
     {
         $this->authCode = $authCode;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }
