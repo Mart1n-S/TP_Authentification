@@ -1,3 +1,30 @@
 body {
-    background-color: skyblue;
+    background-image: url(../images/galaxy.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.card {
+    backdrop-filter: blur(10px);
+    color: white;
+    font-weight: 600;
+}
+
+.text-valid {
+    color: #10ff90;
+}
+
+.text-error {
+    color: #ffca78;
+}
+
+.photo-profil {
+    min-height: 200px;
+    background-image: url(../images/photo-profil.png);
+    background-position: center;
 }

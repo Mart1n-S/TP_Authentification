@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de réinitialisation du mot de passe
+
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 col-lg-6 col-sm-12">
+		{% for flash_info in app.flashes('reset_password_info') %}
+			<div class="alert alert-info" role="alert">{{ flash_info }}</div>
+		{% endfor %}
+		{% if form_errors(requestForm) %}
+			<div class="alert alert-danger">{{ form_errors(requestForm) }}</div>
+		{% endif %}
+		<div class="card  bg-transparent">
+
+			<div class="card-header">
+				<h1 class="card-title">Réinitialisation du mot de passe</h1>
+				<p class="text-white fst-italic">Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
+			</div>
+			<div class="card-body" data-controller="check-input">
+				{{ form_start(requestForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+				<div class="form-floating mb-3">
+					{{ form_widget(requestForm.email, {'attr': {'data-action': 'input->check-input#validateEmail', 'data-check-input-target': 'emailInput'}}) }}
+					{{ form_label(requestForm.email) }}
+					<div class="text-error d-none" data-check-input-target="error">{{ form_errors(requestForm.email) }}</div>
+				</div>
+				{{form_widget(requestForm.captcha)}}
+
+				<button type="submit" class="btn btn-primary w-100">Envoyer</button>
+
+				<div class="d-flex justify-content-center mt-4 gap-1">
+					<p>Je me souviens !
+					</p>
+					<a href="{{path("app_login")}}">Se connecter</a>
+				</div>
+				{{ form_end(requestForm) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

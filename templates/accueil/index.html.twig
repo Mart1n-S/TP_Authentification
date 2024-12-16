@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<div class="card shadow-lg bg-transparent">
+			<div class="card-header text-center bg-info text-white">
+				<h2>Projet d'Authentification Sécurisée</h2>
+				<p class="mb-0">Module : Authentification</p>
+				<p class="mb-0">ESGI 4 – Aix en Provence</p>
+				<p class="mb-0">Octobre - Décembre 2024</p>
+			</div>
+			<div class="card-body">
+				<h4 class="card-title">Objectif</h4>
+				<p class="card-text">
+					Ce projet a pour but de comprendre et mettre en œuvre un système d'authentification sécurisé dans une application web. Les étudiants doivent implémenter des fonctionnalités d'inscription, de connexion, et de déconnexion avec des mesures de sécurité avancées.
+				</p>
+
+				<h4 class="card-title">Prérequis</h4>
+				<ul class="card-text">
+					<li>Compétences de base en développement web (HTML, CSS, JavaScript, et un langage côté serveur).</li>
+					<li>Connaissance des concepts d'authentification (identifiants, mots de passe, sessions).</li>
+				</ul>
+
+				<h4 class="card-title">Fonctionnalités</h4>
+				<ul class="card-text">
+					<li>
+						<strong>Inscription :</strong>
+						Formulaire avec validation des champs et hachage sécurisé des mots de passe.</li>
+					<li>
+						<strong>Connexion :</strong>
+						Vérification des identifiants et gestion des sessions utilisateur.</li>
+					<li>
+						<strong>Déconnexion :</strong>
+						Option de déconnexion et destruction de la session active.</li>
+					<li>
+						<strong>Sécurité :</strong>
+						Protection contre les attaques courantes et ajout de captcha après plusieurs tentatives.</li>
+					<li>
+						<strong>Interface utilisateur :</strong>
+						Interface intuitive pour les formulaires d'inscription et de connexion.</li>
+				</ul>
+
+				<h4 class="card-title">Livrables</h4>
+				<ul class="card-text">
+					<li>Code source de l'application (dépôt Git public).</li>
+					<li>Documentation détaillée sur les choix techniques et les mesures de sécurité.</li>
+					<li>Démonstration fonctionnelle de l'application.</li>
+				</ul>
+
+				<h4 class="card-title">Évaluation</h4>
+				<ul class="card-text">
+					<li>Fonctionnalité de l'application (inscription, connexion, déconnexion).</li>
+					<li>Qualité et sécurité du code.</li>
+					<li>Clarté de la documentation.</li>
+					<li>Ergonomie de l'interface utilisateur.</li>
+				</ul>
+
+				<h4 class="card-title">Bonus</h4>
+				<ul class="card-text">
+					<li>Réinitialisation de mot de passe par email.</li>
+					<li>Authentification à deux facteurs (2FA).</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

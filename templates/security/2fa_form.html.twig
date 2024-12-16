@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
-			{% endblock %}
+			Connexion
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
@@ -19,7 +18,28 @@
 		{% endblock %}
 	</head>
 	<body data-turbo="false">
-		{% include 'partials/_navbar.html.twig' %}
-		{% block body %}{% endblock %}
+		<div class="container mt-5 col-lg-6 col-sm-12">
+			{% if authenticationError %}
+				<div class="alert alert-danger">{{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</div>
+			{% endif %}
+			<div class="card  bg-transparent">
+
+				<form class="form" action="{{path('2fa_login_check')}}" method="post">
+					<div class="card-header">
+						<h1 class="card-title">Code d'authentification par email</h1>
+					</div>
+					<div class="card-body">
+						<div class="form-floating mb-3">
+
+							<input type="text" name="_auth_code" id="_auth_code" class="form-control" placeholder="000000" autocomplete="one-time-code" required autofocus>
+							<label for="_auth_code" class="text-dark">Code</label>
+						</div>
+
+						<button type="submit" class="btn btn-primary w-100">Se connecter</button>
+						<a href="{{path('app_logout')}}" class="btn btn-danger w-100 mt-3">Annuler</a>
+					</div>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

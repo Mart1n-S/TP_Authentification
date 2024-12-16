@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 col-lg-6 col-sm-12">
+		<div class="card mb-3 bg-transparent" style="max-width: 540px;">
+			<div class="row g-0">
+				<div class="col-md-4 photo-profil rounded"></div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h2 class="card-title">Informations du profil</h2>
+						<p class="card-text">{{app.user.name}}</p>
+						<p class="card-text">
+							<small>{{app.user.email}}</small>
+
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

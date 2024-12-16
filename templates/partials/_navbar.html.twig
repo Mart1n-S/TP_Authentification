@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div
+		class="container">
+		<!-- Nom du site à gauche -->
+		<a class="navbar-brand fw-bolder" href="{{path("app_accueil")}}">TP_Authentification</a>
+
+		<!-- Bouton pour mobile -->
+		{% if app.request.attributes.get('_route')  != 'app_reset_password' %}
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		{% endif %}
+		<!-- Contenu de la navbar -->
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<hr class="d-lg-none my-4">
+			<div class="d-flex flex-lg-row flex-column gap-lg-0 gap-3">
+				{% if app.user %}
+					<a href="{{path('app_accueil')}}" class="btn btn-info me-lg-2 text-white {% if app.request.attributes.get('_route')  == 'app_accueil' %}disabled{% endif %}">Accueil</a>
+
+					<a href="{{path('app_profil')}}" class="btn btn-info me-lg-2 text-white {% if app.request.attributes.get('_route')  == 'app_profil' %}disabled{% endif %}">Profil</a>
+
+					<a href="{{path('app_logout')}}" class="btn btn-danger">Déconnexion</a>
+				{% elseif app.request.attributes.get('_route')  != 'app_reset_password' %}
+					<a href="{{path('app_accueil')}}" class="btn btn-info me-lg-2 text-white {% if app.request.attributes.get('_route')  == 'app_accueil' %}disabled{% endif %}">Accueil</a>
+
+					<a href="{{path('app_login')}}" class="btn btn-outline-primary me-lg-2 {% if app.request.attributes.get('_route')  == 'app_login' %}disabled{% endif %}">Connexion</a>
+
+					<a href="{{path('app_register')}}" class="btn btn-primary {% if app.request.attributes.get('_route')  == 'app_register' %}disabled{% endif %}">Inscription</a>
+
+				{% endif %}
+
+
+			</div>
+		</div>
+	</div>
+</nav>
