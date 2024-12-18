@@ -25,7 +25,7 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
    ```
 3. **Configurer le fichier .env.local :**
 
-    Créer le fichier .env.local en copiant le .env à la racine du projet pour définir vos informations de connexion à la base de données, pour plus de simplicité la configuration du .env est déjà faite donc passer directement à l'étape **Construction et exécution des conteneurs**:
+    Créer le fichier .env.local en copiant le .env à la racine du projet pour définir vos informations de connexion à la base de données, pour plus de simplicité la configuration du .env est déjà faite donc passer directement à l'étape **Construction et exécution des conteneurs**, mais si besoin faite les étapes suivante:
     ```bash
     MYSQL_DATABASE=app
     MYSQL_USER=user
